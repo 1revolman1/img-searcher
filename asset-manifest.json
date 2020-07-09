@@ -1,0 +1,23 @@
+{
+  "files": {
+    "main.css": "/img-searcher/static/css/main.5ecd60fb.chunk.css",
+    "main.js": "/img-searcher/static/js/main.9b27efd0.chunk.js",
+    "main.js.map": "/img-searcher/static/js/main.9b27efd0.chunk.js.map",
+    "runtime-main.js": "/img-searcher/static/js/runtime-main.4e3b73c0.js",
+    "runtime-main.js.map": "/img-searcher/static/js/runtime-main.4e3b73c0.js.map",
+    "static/js/2.75356218.chunk.js": "/img-searcher/static/js/2.75356218.chunk.js",
+    "static/js/2.75356218.chunk.js.map": "/img-searcher/static/js/2.75356218.chunk.js.map",
+    "index.html": "/img-searcher/index.html",
+    "precache-manifest.c2f8e00f1da89d2719d120ac57adfacc.js": "/img-searcher/precache-manifest.c2f8e00f1da89d2719d120ac57adfacc.js",
+    "service-worker.js": "/img-searcher/service-worker.js",
+    "static/css/main.5ecd60fb.chunk.css.map": "/img-searcher/static/css/main.5ecd60fb.chunk.css.map",
+    "static/js/2.75356218.chunk.js.LICENSE.txt": "/img-searcher/static/js/2.75356218.chunk.js.LICENSE.txt",
+    "static/media/expand-svgrepo-com.svg": "/img-searcher/static/media/expand-svgrepo-com.9d3f0971.svg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.4e3b73c0.js",
+    "static/js/2.75356218.chunk.js",
+    "static/css/main.5ecd60fb.chunk.css",
+    "static/js/main.9b27efd0.chunk.js"
+  ]
+}
