@@ -8,7 +8,7 @@ import {
   GoogleWrapper,
   DownloadNew,
 } from "./styled";
-import Image from "./Image";
+import Image from "../../components/Image";
 const key = "17361687-a101acdabc6a7719b500f899f";
 
 export default function Home() {
