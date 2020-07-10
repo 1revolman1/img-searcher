@@ -73,7 +73,6 @@ export default function Home() {
                   key={`${index}KeyElement${element.id}`}
                   data={element}
                   localstore={localStore}
-                  // setLocalStore={setLocalStore}
                 />
               );
             })}

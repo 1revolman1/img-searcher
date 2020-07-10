@@ -41,7 +41,7 @@ export default function Index(props) {
   return (
     <StyledCard className={bigShow ? "bigShow" : "smallShow"}>
       <img ref={img} src={bigShow ? largeImageURL : previewURL} alt="" />
-      <StyledInformation className="opened">
+      <StyledInformation className="overlay">
         <StyledInfavourite
           className={favourite ? "opened" : "closed"}
           onClick={addToFavourite}

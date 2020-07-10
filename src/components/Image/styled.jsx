@@ -13,11 +13,18 @@ export const StyledCard = styled.div`
     z-index: 1;
     max-width: inherit;
     background: rgba(0, 0, 0, 0.3);
+    .overlay {
+      width: 70%;
+      height: 70%;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+    }
     .opened {
       transition: none;
       opacity: 1;
-      width: 70%;
-      height: 70%;
+      width: 100%;
+      height: 100%;
       top: 50%;
       left: 50%;
       transform: translate(-50%, -50%);
@@ -45,10 +52,11 @@ export const StyledInformation = styled.div`
   left: 0;
   width: 100%;
   height: 100%;
-  transition: all 0.5s linear;
+  transition: opacity 0.5s linear;
+  transition: background-color 0.5s linear;
   &:hover {
     opacity: 1;
-    background: rgba(255, 255, 255, 0.4);
+    background-color: rgba(255, 255, 255, 0.4);
   }
 `;
 export const StyledExpand = styled.div`
