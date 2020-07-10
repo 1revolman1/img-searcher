@@ -17,7 +17,10 @@ export default function Index(props) {
         return element.id === props.data.id;
       }).length > 0;
     found && setFavourite(true);
-  }, []);
+    return () => {
+      setFavourite(false);
+    };
+  }, [props.data.id]);
   const addToFavourite = function () {
     const parsedLocalStorage = JSON.parse(localStorage.getItem("favourite"));
     if (favourite) {
@@ -40,17 +43,12 @@ export default function Index(props) {
     setFavourite(!favourite);
   };
   return (
-    <StyledCard
-      className={bigShow ? "bigShow" : "smallShow"}
-      key={`Unique${id}`}
-    >
+    <StyledCard className={bigShow ? "bigShow" : "smallShow"}>
       <img ref={img} src={bigShow ? largeImageURL : previewURL} alt="" />
       <StyledInformation className="opened">
         <StyledInfavourite
           className={favourite ? "opened" : "closed"}
-          onClick={() => {
-            addToFavourite();
-          }}
+          onClick={addToFavourite}
         >
           <div className="circle">
             <div className="horizontal"></div>

@@ -65,7 +65,7 @@ export default function Home() {
         <ImgBarContainer>
           {query.posts.length > 0 &&
             query.posts.map((element, index) => {
-              return <Image key={index} data={element} />;
+              return <Image key={element.id} data={element} />;
             })}
         </ImgBarContainer>
       </ImgBar>
