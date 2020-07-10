@@ -1,6 +1,7 @@
 import React from "react";
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
-import Home from "./pages/Home/index";
+import Home from "./pages/Home";
+import Favourite from "./pages/Favourite";
 import styled from "styled-components";
 const Nav = styled.nav`
   ul {
@@ -33,7 +34,7 @@ export default function App() {
             <Home />
           </Route>
           <Route exact path="/favorite">
-            <h1>Hello Word!</h1>
+            <Favourite />
           </Route>
         </Switch>
       </div>

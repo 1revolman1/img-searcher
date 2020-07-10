@@ -6,21 +6,27 @@ import {
   StyledInfavourite,
 } from "./styled";
 export default function Index(props) {
-  const { id, previewURL, largeImageURL } = props.data;
+  const {
+    id,
+    previewURL,
+    largeImageURL,
+    localstore,
+    setLocalStore,
+  } = props.data;
   const [bigShow, setBigShow] = useState(false);
   const [favourite, setFavourite] = useState(false);
   const img = useRef();
-  useEffect(() => {
-    const parsedLocalStorage = JSON.parse(localStorage.getItem("favourite"));
-    let found =
-      parsedLocalStorage.filter((element) => {
-        return element.id === props.data.id;
-      }).length > 0;
-    found && setFavourite(true);
-    return () => {
-      setFavourite(false);
-    };
-  }, [props.data.id]);
+  // useEffect(() => {
+  //   const parsedLocalStorage = JSON.parse(localStorage.getItem("favourite"));
+  //   let found =
+  //     parsedLocalStorage.filter((element) => {
+  //       return element.id === props.data.id;
+  //     }).length > 0;
+  //   found && setFavourite(true);
+  //   return () => {
+  //     setFavourite(false);
+  //   };
+  // }, [props.data.id]);
   const addToFavourite = function () {
     const parsedLocalStorage = JSON.parse(localStorage.getItem("favourite"));
     if (favourite) {

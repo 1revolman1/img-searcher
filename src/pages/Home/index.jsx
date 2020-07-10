@@ -9,13 +9,17 @@ import {
   DownloadNew,
 } from "./styled";
 import Image from "../../components/Image";
+import StackGrid from "react-stack-grid";
+
 const key = "17361687-a101acdabc6a7719b500f899f";
 
 export default function Home() {
   const text = useRef(null);
   const ammounOfQueries = useRef(0);
   const currentPage = useRef(1);
+  const nowData = useRef([]);
   const [query, setQuery] = useState({ text: "", posts: [] });
+  const [localStore, setLocalStore] = useState([]);
   const doSearching = function (text, page) {
     if (query.text !== text) {
       currentPage.current = 1;
@@ -28,6 +32,7 @@ export default function Home() {
       .then((res) => res.json())
       .then((Newposts) => {
         ammounOfQueries.current = Newposts.total;
+        nowData.current = Newposts.hits;
         if (query.text !== text) {
           setQuery({ text, posts: Newposts.hits });
         } else {
@@ -35,10 +40,23 @@ export default function Home() {
         }
       });
   };
+  // useEffect(() => {
+  //   const parsedLocalStorage = JSON.parse(localStorage.getItem("favourite"));
+  //   let found =
+  //     parsedLocalStorage.filter((element) => {
+  //       return element.id === props.data.id;
+  //     }).length > 0;
+  //   found && setFavourite(true);
+  //   return () => {
+  //     setFavourite(false);
+  //   };
+  // });
   useEffect(() => {
     !localStorage.getItem("favourite") &&
       localStorage.setItem("favourite", JSON.stringify([]));
+    setLocalStore(JSON.parse(localStorage.getItem("favourite")));
   }, []);
+
   return (
     <GoogleWrapper className="page-google">
       <form
@@ -65,11 +83,18 @@ export default function Home() {
         <ImgBarContainer>
           {query.posts.length > 0 &&
             query.posts.map((element, index) => {
-              return <Image key={element.id} data={element} />;
+              return (
+                <Image
+                  key={`${index}KeyElement${element.id}`}
+                  data={element}
+                  localstore={localStore}
+                  setLocalStore={setLocalStore}
+                />
+              );
             })}
         </ImgBarContainer>
       </ImgBar>
-      {query.posts.length > 10 && (
+      {query.posts.length > 10 && nowData.current.length > 0 && (
         <DownloadNew>
           <button
             onClick={() => {

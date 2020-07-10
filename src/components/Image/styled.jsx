@@ -48,7 +48,7 @@ export const StyledInformation = styled.div`
   transition: all 0.5s linear;
   &:hover {
     opacity: 1;
-    background: rgba(0, 0, 0, 0.4);
+    background: rgba(255, 255, 255, 0.4);
   }
 `;
 export const StyledExpand = styled.div`
