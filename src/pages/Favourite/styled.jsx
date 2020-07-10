@@ -9,9 +9,9 @@ export const StyledImgContainer = styled.div`
   display: flex;
   flex-wrap: wrap;
   border: 2px solid red;
-  max-width: 80%;
+  width: 80%;
   margin: 0 auto;
-  & > div {
+  & > div:not(.bigShow) {
     margin: 20px;
   }
 `;

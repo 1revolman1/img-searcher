@@ -9,6 +9,7 @@ import {
   DownloadNew,
 } from "./styled";
 import Image from "../../components/Image";
+import useFavouriteLogic from "../../userHooks/localstorage";
 import StackGrid from "react-stack-grid";
 
 const key = "17361687-a101acdabc6a7719b500f899f";
@@ -19,7 +20,7 @@ export default function Home() {
   const currentPage = useRef(1);
   const nowData = useRef([]);
   const [query, setQuery] = useState({ text: "", posts: [] });
-  const [localStore, setLocalStore] = useState([]);
+  const localStore = useFavouriteLogic([]);
   const doSearching = function (text, page) {
     if (query.text !== text) {
       currentPage.current = 1;
@@ -40,22 +41,6 @@ export default function Home() {
         }
       });
   };
-  // useEffect(() => {
-  //   const parsedLocalStorage = JSON.parse(localStorage.getItem("favourite"));
-  //   let found =
-  //     parsedLocalStorage.filter((element) => {
-  //       return element.id === props.data.id;
-  //     }).length > 0;
-  //   found && setFavourite(true);
-  //   return () => {
-  //     setFavourite(false);
-  //   };
-  // });
-  useEffect(() => {
-    !localStorage.getItem("favourite") &&
-      localStorage.setItem("favourite", JSON.stringify([]));
-    setLocalStore(JSON.parse(localStorage.getItem("favourite")));
-  }, []);
 
   return (
     <GoogleWrapper className="page-google">
@@ -88,7 +73,7 @@ export default function Home() {
                   key={`${index}KeyElement${element.id}`}
                   data={element}
                   localstore={localStore}
-                  setLocalStore={setLocalStore}
+                  // setLocalStore={setLocalStore}
                 />
               );
             })}
