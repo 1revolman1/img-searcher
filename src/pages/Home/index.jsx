@@ -1,5 +1,4 @@
 import React, { useState, useEffect, useRef } from "react";
-import styled from "styled-components";
 import {
   ControlPanelDiv,
   StyledInput,
@@ -36,6 +35,10 @@ export default function Home() {
         }
       });
   };
+  useEffect(() => {
+    !localStorage.getItem("favourite") &&
+      localStorage.setItem("favourite", JSON.stringify([]));
+  }, []);
   return (
     <GoogleWrapper className="page-google">
       <form
